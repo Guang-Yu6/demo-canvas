@@ -2,13 +2,46 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>画板</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        #canvas {
+            height: 500px;
+            border: 10px solid pink;
+        }
+    </style>
 </head>
 
 <body>
-    hi
+    <div id="canvas"></div>
+    <script>
+        canvas.onclick = (e) => {
+            console.log(e);
+            console.log(e.clientX);
+            console.log(e.clientY); // 通过log得到鼠标的位置，创建div·再创建CSS
+            // log 调试大法
+            let div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.left = e.clientX + "px";
+            div.style.top = e.clientY + "px";
+            // div.style.border = '1px solid red'
+            div.style.width = "6px";
+            div.style.height = "6px";
+            div.style.marginLeft = "-3px";
+            div.style.marginTop = "-3px";
+            div.style.borderRadius = "50%";
+            div.style.backgroundColor = "black";
+            canvas.appendChild(div);
+        };
+    </script>
 </body>
 
 </html>
